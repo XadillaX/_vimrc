@@ -1,6 +1,6 @@
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
+" source $VIMRUNTIME/mswin.vim
 
 set diffexpr=MyDiff()
 function! MyDiff()
@@ -115,6 +115,7 @@ nnoremap <leader>y "+y                              " 将选中内容拷贝到�
 nnoremap <leader>p "+p                              " 将系统剪切板粘贴到当前 vim
 nnoremap <leader>hn :call OpenHexoProjPath()<cr>:!hexo new<space>
 nnoremap <leader>hg :call HexoGenerate()<cr>
+nnoremap <leader><cr> a<cr><esc>k$a<cr>
 
 """"""""""""""
 " Bundle
@@ -137,9 +138,18 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "honza/vim-snippets"
+""""""""""""""""
+" 一些js插件
+""""""""""""""""
 " ↓ dump the contents of snippets/javascript into the directory ~/.vim/snippets/javascript.
 Bundle "jamescarr/snipmate-nodejs"
 Bundle "ahayman/vim-nodejs-complete"
+Bundle "heavenshell/vim-jsdoc"
+Bundle "jelera/vim-javascript-syntax"
+Bundle "pangloss/vim-javascript"
+Bundle "nathanaelkane/vim-indent-guides"
+Bundle "Raimondi/delimitMate"
+
 
 """"""""""""""
 " Pathogen
