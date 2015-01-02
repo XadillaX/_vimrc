@@ -4,6 +4,7 @@ set langmenu=zh_cn
 "=============
 " Bundle
 "=============
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 Bundle "gmarik/Vundle.vim"
@@ -14,6 +15,8 @@ Bundle "guns/vim-clojure-static"
 Bundle "tpope/vim-fireplace"
 Bundle "guns/vim-clojure-highlight"
 Bundle "amdt/vim-niji"
+" Python 相关
+Bundle "klen/python-mode.git"
 " C++ 相关
 Bundle "XadillaX/c.vim"
 Bundle "Valloric/YouCompleteMe"
@@ -33,10 +36,12 @@ Bundle "guileen/vim-node-dict"
 Bundle "elzr/vim-json"
 Bundle "XadillaX/json-formatter.vim"
 " 通用插件
+Bundle "vim-scripts/grep.vim"
 Bundle "rosenfeld/conque-term"
 Bundle "fholgado/minibufexpl.vim"
 Bundle "morhetz/gruvbox"
 Bundle "scrooloose/nerdtree"
+Bundle "jistr/vim-nerdtree-tabs"
 Bundle "scrooloose/nerdcommenter"
 Bundle "Lokaltog/vim-powerline"
 Bundle "mattn/emmet-vim"
@@ -46,6 +51,7 @@ Bundle "vim-scripts/taglist.vim"
 Bundle "Raimondi/delimitMate"
 Bundle "mileszs/ack.vim"
 Bundle "godlygeek/tabular"
+Bundle "junegunn/vim-easy-align"
 
 "============
 " 环境配置
@@ -142,6 +148,10 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=r
 set guioptions-=R
+
+" 80 列辅助线
+set cc=80
+set cc+=100
 
 " =====================
 " 多语言环境
@@ -291,6 +301,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>" viw<esc>i"<esc>hbi"<esc>lel
 " 用单引号括当前单词
 nnoremap <leader>' viw<esc>i'<esc>hbi'<esc>lel
+nnoremap <leader>( viw<esc>i(<esc>hbi)<esc>lel
 " 打开/关闭 NERDTree
 nnoremap <leader>fl :NERDTreeToggle<cr>
 " 打开/关闭 Tlist
@@ -388,6 +399,14 @@ endfunction
 "=============
 " 插件配置
 "=============
+" python-mode
+" Override go-to.definition key shortcut to Ctrl-]
+let g:pymode_rope_goto_definition_bind = "<C-]>"
+" Override run current python file key shortcut to Ctrl-Shift-e
+let g:pymode_run_bind = "<C-S-e>"
+" Override view python doc key shortcut to Ctrl-Shift-d
+let g:pymode_doc_bind = "<C-S-d>"
+
 " Powerline
 set laststatus=2     " Always show the statusline
 set t_Co=256         " Explicitly tell Vim that the terminal support 256 colors
@@ -405,7 +424,7 @@ let g:vimclojure#HighlightBuiltins = 1
 let g:vimclojure#ParenRainbow      = 1
 
 " JSDoc
-let g:jsdoc_allow_input_prompt      = 1
+let g:jsdoc_allow_input_prompt     = 1
 
 " minibufexpl
 let g:miniBufExplMapCTabSwitchBufs = 1
@@ -420,13 +439,21 @@ map <Leader>mbe :MBEOpen<cr>
 map <Leader>mbc :MBEClose<cr>
 map <Leader>mbt :MBEToggle<cr>
 
+" vim-easy-align
+vmap <Enter> <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
 " c.vim
 let  g:C_UseTool_cmake      = 'yes' 
 let  g:C_UseTool_doxygen    = 'yes' 
 
 " YouCompleteMe
 let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 set completeopt-=preview
+
+" Grep
+nnoremap <silent> <F3> :Rgrep<CR>
 
 " Tabular
 if exists(":Tabularize")
@@ -435,7 +462,6 @@ if exists(":Tabularize")
     nmap <Leader>a: :Tabularize /:\zs<CR>
     vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
-
 
 " Node.js
 au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
@@ -452,7 +478,6 @@ let g:syntastic_mode_map = { 'passive_filetypes': ['scss', 'slim'] }
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_javascript_jshint_args = '--config ' . $HOME . '/.jshintrc'
 let g:syntastic_javascript_jshint_exec = '/usr/local/bin/jshint'
-
 " or
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 " for html
