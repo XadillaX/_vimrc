@@ -20,6 +20,8 @@ Bundle "klen/python-mode.git"
 " C++ 相关
 Bundle "XadillaX/c.vim"
 Bundle "Valloric/YouCompleteMe"
+" EJS 相关
+Bundle "briancollins/vim-jst"
 " JS 相关
 Bundle "walm/jshint.vim"
 Bundle "moll/vim-node"
@@ -52,6 +54,9 @@ Bundle "Raimondi/delimitMate"
 Bundle "mileszs/ack.vim"
 Bundle "godlygeek/tabular"
 Bundle "junegunn/vim-easy-align"
+" Markdown
+Bundle "plasticboy/vim-markdown"
+Bundle "suan/vim-instant-markdown"
 
 "============
 " 环境配置
@@ -200,7 +205,7 @@ if has('gui_running')
 
         " 字体配置
         set guifont=Fantasque_Sans_Mono:h11:cANSI
-        set guifontwide=YouYuan:h9:cGB2312
+        set guifontwide=ZhunYuan:h9:cGB2312
     endif
 
     if has("unix") && !has('gui_macvim')
@@ -209,8 +214,8 @@ if has('gui_running')
     endif
 
     if has("mac") || has("gui_macvim")
-        set guifont=Fantasque\ Sans\ Mono:h14
-        set guifontwide=Yuanti\ SC:h14
+        set guifont=Fantasque\ Sans\ Mono:h16
+        set guifontwide=WenyueType\ GutiFangsong\ \(Noncommercial\ Use\):h16
         if has("gui_macvim")
             set transparency=4
 
