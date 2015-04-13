@@ -29,11 +29,13 @@ Bundle "heavenshell/vim-jsdoc"
 Bundle "jelera/vim-javascript-syntax"
 Bundle "pangloss/vim-javascript"
 Bundle "marijnh/tern_for_vim"
-Bundle "vim-scripts/JavaScript-Indent"
-Bundle "beautify-web/js-beautify"
 Bundle "maksimr/vim-jsbeautify.git"
+Bundle "einars/js-beautify"
 Bundle "scrooloose/syntastic.git"
 Bundle "guileen/vim-node-dict"
+Bundle "mxw/vim-jsx"
+" Rust
+Bundle "wting/rust.vim"
 " JSON 相关
 Bundle "elzr/vim-json"
 Bundle "XadillaX/json-formatter.vim"
@@ -46,7 +48,6 @@ Bundle "scrooloose/nerdtree"
 Bundle "jistr/vim-nerdtree-tabs"
 Bundle "scrooloose/nerdcommenter"
 Bundle "Lokaltog/vim-powerline"
-Bundle "mattn/emmet-vim"
 Bundle "vim-scripts/TagHighlight"
 Bundle "vim-scripts/vimwiki"
 Bundle "vim-scripts/taglist.vim"
@@ -57,6 +58,9 @@ Bundle "junegunn/vim-easy-align"
 " Markdown
 Bundle "plasticboy/vim-markdown"
 Bundle "suan/vim-instant-markdown"
+" others
+Bundle "mattn/emmet-vim"
+Bundle "wavded/vim-stylus"
 
 "============
 " 环境配置
@@ -64,8 +68,11 @@ Bundle "suan/vim-instant-markdown"
 " 保留历史记录
 set history=400
 
+" 背景
+hi Normal ctermfg=252 ctermbg=none
+
 " 高亮配色
-colorscheme gruvbox
+colorscheme BusyBee
 set background=dark
 
 " 命令行处于状态行
@@ -156,7 +163,7 @@ set guioptions-=R
 
 " 80 列辅助线
 set cc=80
-set cc+=100
+set cc+=120
 
 " =====================
 " 多语言环境
@@ -192,6 +199,7 @@ endif
 if has('gui_running')
     " 只显示菜单
     " set guioptions=mcr
+    colorscheme gruvbox
 
     " 高亮光标所在的行
     set cursorline
@@ -474,7 +482,7 @@ au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
 " syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '♠'
+let g:syntastic_warning_symbol = '~'
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 5
 let g:syntastic_enable_highlighting = 0
@@ -483,6 +491,21 @@ let g:syntastic_mode_map = { 'passive_filetypes': ['scss', 'slim'] }
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_javascript_jshint_args = '--config ' . $HOME . '/.jshintrc'
 let g:syntastic_javascript_jshint_exec = '/usr/local/bin/jshint'
+let g:syntastic_html_tidy_ignore_errors = [
+			\ 'trimming empty <i>',
+			\ 'trimming empty <span>',
+			\ '<input> proprietary attribute \"autocomplete\"',
+			\ 'proprietary attribute \"role\"',
+			\ 'proprietary attribute \"hidden\"',
+			\ 'proprietary attribute \"ng-',
+			\ '<svg> is not recognized!',
+            \ '<path> is not recognized!',
+            \ 'discarding unexpected <path>',
+			\ 'discarding unexpected <svg>',
+			\ 'discarding unexpected </svg>',
+			\ '<rect> is not recognized!',
+			\ 'discarding unexpected <rect>'
+			\ ]
 " or
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 " for html
