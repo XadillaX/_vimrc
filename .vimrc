@@ -178,8 +178,8 @@ if has("multi_byte")
         let &termencoding=&encoding
     endif
 
-    set lm=zh_tw.utf-8
-    let $LANG="zh_tw"
+    set lm=zh_cn.utf-8
+    let $LANG="zh_cn"
     set fencs=ucs-bom,utf-8,gbk,cp936,latin1
     set formatoptions+=mM
 
@@ -207,13 +207,15 @@ if has('gui_running')
     if has("win32")
         " Windows 兼容配置
         source $VIMRUNTIME/mswin.vim
+        source $VIMRUNTIME/delmenu.vim
+        source $VIMRUNTIME/menu.vim
 
         " f11 最大化
         map <f11> :call libcallnr('fullscreen.dll', 'ToggleFullScreen', 0)<cr>
 
         " 字体配置
         set guifont=Fantasque_Sans_Mono:h11:cANSI
-        set guifontwide=ZhunYuan:h9:cGB2312
+        set guifontwide=幼圆:h9:cGB2312
     endif
 
     if has("unix") && !has('gui_macvim')
@@ -283,16 +285,16 @@ if has("gui_macvim")
     " Set input method off
     set imdisable
 
-    " Set QuickTemplatePath
-    let g:QuickTemplatePath = $HOME.'/.vim/templates/'
-
-    " call OpenNodeProjPath()
-
     " 自动切换到文件当前目录
     set autochdir
+endif
 
-    " Set QuickTemplatePath
-    let g:QuickTemplatePath = $HOME.'/.vim/templates/'
+"=====================
+" Win 下的配置
+"=====================
+if has("win32")
+    call OpenNodeProjPath()
+    set autochdir
 endif
 
 "=============
@@ -462,7 +464,11 @@ let  g:C_UseTool_doxygen    = 'yes'
 
 " YouCompleteMe
 let g:ycm_add_preview_to_completeopt = 0
+if has("win32")
+let g:ycm_global_ycm_extra_conf = 'C:\Users\XadillaX\.vim\bundle\YouCompleteMe\third_party\ycmd\examples\.ycm_extra_conf.py'
+else
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+endif
 set completeopt-=preview
 
 " Grep
@@ -506,6 +512,15 @@ let g:syntastic_html_tidy_ignore_errors = [
 			\ '<rect> is not recognized!',
 			\ 'discarding unexpected <rect>'
 			\ ]
+
+if has("win32")
+    let g:syntastic_error_symbol = 'x'
+    let g:syntastic_warning_symbol = '?'
+
+    let g:syntastic_javascript_jshint_args = '--config ' . $HOME . '/.vim/_jshintrc'
+    let g:syntastic_javascript_jshint_exec = 'jshint'
+endif
+
 " or
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 " for html
@@ -518,6 +533,9 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 "=============
 command -nargs=+ HexoOpen :call OpenHexoPost("<args>")
 command -nargs=+ HexoNew :call NewHexoPost("<args>")
+
+" 文件模板
+let g:QuickTemplatePath = $HOME.'/.vim/templates/'
 
 "=============
 " 自启动命令
@@ -543,4 +561,3 @@ au BufNewFile,BufRead *.gyp set filetype=json
 
 " Vim Javascript Syntax
 au FileType javascript call JavaScriptFold()
-
