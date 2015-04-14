@@ -68,9 +68,6 @@ Bundle "wavded/vim-stylus"
 " 保留历史记录
 set history=400
 
-" 背景
-hi Normal ctermfg=252 ctermbg=none
-
 " 高亮配色
 colorscheme BusyBee
 set background=dark
