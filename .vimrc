@@ -14,7 +14,7 @@ Bundle "mattn/flappyvird-vim"
 Bundle "guns/vim-clojure-static"
 Bundle "tpope/vim-fireplace"
 Bundle "guns/vim-clojure-highlight"
-Bundle "amdt/vim-niji"
+Bundle "spinningarrow/vim-niji"
 " Python 相关
 Bundle "klen/python-mode.git"
 " C++ 相关
@@ -43,7 +43,6 @@ Bundle "XadillaX/json-formatter.vim"
 Bundle "vim-scripts/grep.vim"
 Bundle "rosenfeld/conque-term"
 Bundle "fholgado/minibufexpl.vim"
-Bundle "morhetz/gruvbox"
 Bundle "scrooloose/nerdtree"
 Bundle "jistr/vim-nerdtree-tabs"
 Bundle "scrooloose/nerdcommenter"
@@ -61,6 +60,9 @@ Bundle "suan/vim-instant-markdown"
 " others
 Bundle "mattn/emmet-vim"
 Bundle "wavded/vim-stylus"
+" Theme
+Bundle "morhetz/gruvbox"
+Bundle "wellsjo/wells-colorscheme.vim"
 
 "============
 " 环境配置
@@ -69,8 +71,11 @@ Bundle "wavded/vim-stylus"
 set history=400
 
 " 高亮配色
-colorscheme BusyBee
+colorscheme wells-colors
 set background=dark
+" Transparent
+hi Normal ctermbg=none
+hi NonText ctermbg=none
 
 " 命令行处于状态行
 set ch=1
@@ -493,7 +498,7 @@ let g:syntastic_mode_map = { 'passive_filetypes': ['scss', 'slim'] }
 " syntastic - jshintrc
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_javascript_jshint_args = '--config ' . $HOME . '/.jshintrc'
-let g:syntastic_javascript_jshint_exec = '/usr/local/bin/jshint'
+let g:syntastic_javascript_jshint_exec = '/home/xadillax/.nvm/versions/node/v0.12.2/bin/jshint'
 let g:syntastic_html_tidy_ignore_errors = [
 			\ 'trimming empty <i>',
 			\ 'trimming empty <span>',
