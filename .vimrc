@@ -71,7 +71,7 @@ Bundle "wellsjo/wells-colorscheme.vim"
 set history=400
 
 " 高亮配色
-colorscheme wells-colors
+colorscheme atom-dark
 set background=dark
 " Transparent
 hi Normal ctermbg=none
