@@ -71,11 +71,9 @@ Bundle "wellsjo/wells-colorscheme.vim"
 set history=400
 
 " 高亮配色
-colorscheme atom-dark
+colorscheme lucius
 set background=dark
-" Transparent
-hi Normal ctermbg=none
-hi NonText ctermbg=none
+set t_ut=
 
 " 命令行处于状态行
 set ch=1
@@ -94,8 +92,8 @@ set showcmd
 
 " 行控制
 " set linebreak
-set nocompatible
 " set textwidth=80
+set nocompatible
 set wrap
 
 " 行号和标尺
@@ -175,7 +173,7 @@ if has("multi_byte")
     set encoding=utf-8
     set fileencoding=utf-8
 
-    if has('win32')
+    if has("win32")
         language english
         let &termencoding=&encoding
     endif
@@ -198,10 +196,11 @@ endif
 " =====================
 " 图形界面
 " =====================
-if has('gui_running')
+if has("gui_running")
     " 只显示菜单
-    " set guioptions=mcr
+    set guioptions=mcr
     colorscheme gruvbox
+    " colorscheme wells-colorscheme
 
     " 高亮光标所在的行
     set cursorline
@@ -220,7 +219,7 @@ if has('gui_running')
         set guifontwide=幼圆:h9:cGB2312
     endif
 
-    if has("unix") && !has('gui_macvim')
+    if has("unix") && !has("gui_macvim")
         set guifont=Fantasque\ Sans\ Mono\ Regular:h14
         set guifontwide=YaHei\ Consolas\ Hybrid\ 14
     endif
@@ -488,17 +487,17 @@ endif
 au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
 
 " syntastic
-let g:syntastic_check_on_open = 1
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '~'
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_mode_map = { 'passive_filetypes': ['scss', 'slim'] }
+let g:syntastic_check_on_open           = 1
+let g:syntastic_error_symbol            = '✗'
+let g:syntastic_warning_symbol          = '~'
+let g:syntastic_auto_loc_list           = 1
+let g:syntastic_loc_list_height         = 5
+let g:syntastic_enable_highlighting     = 0
+let g:syntastic_mode_map                = { 'passive_filetypes': ['scss', 'slim'] }
 " syntastic - jshintrc
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_javascript_jshint_args = '--config ' . $HOME . '/.jshintrc'
-let g:syntastic_javascript_jshint_exec = '/home/xadillax/.nvm/versions/node/v0.12.2/bin/jshint'
+let g:syntastic_javascript_checkers     = ['jshint']
+let g:syntastic_javascript_jshint_args  = '--config ' . $HOME . '/.jshintrc'
+let g:syntastic_javascript_jshint_exec  = '/home/xadillax/.nvm/versions/node/v0.12.2/bin/jshint'
 let g:syntastic_html_tidy_ignore_errors = [
 			\ 'trimming empty <i>',
 			\ 'trimming empty <span>',
@@ -542,11 +541,11 @@ let g:QuickTemplatePath = $HOME.'/.vim/templates/'
 "=============
 " 自启动命令
 "=============
-"autocmd StdinReadPre * let s:std_in=1
-"au VimEnter * RainbowParenthesesToggle
-"au Syntax * RainbowParenthesesLoadRound
-"au Syntax * RainbowParenthesesLoadSquare
-"au Syntax * RainbowParenthesesLoadBraces
+" autocmd StdinReadPre * let s:std_in=1
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 
 " 模板
 augroup templates
