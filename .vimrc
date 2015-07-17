@@ -20,22 +20,26 @@ Bundle "klen/python-mode.git"
 " C++ 相关
 Bundle "XadillaX/c.vim"
 Bundle "Valloric/YouCompleteMe"
+" HBS 相关
+Bundle "mustache/vim-mustache-handlebars"
 " EJS 相关
 Bundle "briancollins/vim-jst"
 " JS 相关
+Bundle "sidorares/node-vim-debugger"
 Bundle "walm/jshint.vim"
 Bundle "moll/vim-node"
 Bundle "heavenshell/vim-jsdoc"
-Bundle "jelera/vim-javascript-syntax"
+" Bundle "jelera/vim-javascript-syntax"
 Bundle "pangloss/vim-javascript"
-Bundle "marijnh/tern_for_vim"
+" Bundle "marijnh/tern_for_vim"
 Bundle "maksimr/vim-jsbeautify.git"
 Bundle "einars/js-beautify"
 Bundle "scrooloose/syntastic.git"
 Bundle "guileen/vim-node-dict"
 Bundle "mxw/vim-jsx"
 " Rust
-Bundle "wting/rust.vim"
+Bundle "rust-lang/rust.vim"
+Bundle "cespare/vim-toml"
 " JSON 相关
 Bundle "elzr/vim-json"
 Bundle "XadillaX/json-formatter.vim"
@@ -46,7 +50,10 @@ Bundle "fholgado/minibufexpl.vim"
 Bundle "scrooloose/nerdtree"
 Bundle "jistr/vim-nerdtree-tabs"
 Bundle "scrooloose/nerdcommenter"
-Bundle "Lokaltog/vim-powerline"
+" Bundle "Lokaltog/vim-powerline"
+Bundle "bling/vim-airline"
+Bundle "tpope/vim-fugitive"
+Bundle "airblade/vim-gitgutter"
 Bundle "vim-scripts/TagHighlight"
 Bundle "vim-scripts/vimwiki"
 Bundle "vim-scripts/taglist.vim"
@@ -63,6 +70,8 @@ Bundle "wavded/vim-stylus"
 " Theme
 Bundle "morhetz/gruvbox"
 Bundle "wellsjo/wells-colorscheme.vim"
+" Dash
+Bundle "rizzatti/dash.vim"
 
 "============
 " 环境配置
@@ -225,7 +234,7 @@ if has("gui_running")
     endif
 
     if has("mac") || has("gui_macvim")
-        set guifont=Fantasque\ Sans\ Mono:h16
+        set guifont=Fantasque\ Sans\ Mono:h14
         set guifontwide=WenyueType\ GutiFangsong\ \(Noncommercial\ Use\):h16
         if has("gui_macvim")
             set transparency=4
@@ -428,6 +437,23 @@ set laststatus=2     " Always show the statusline
 set t_Co=256         " Explicitly tell Vim that the terminal support 256 colors
 let g:Powerline_symbols  = 'unicode'
 
+" Airline
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#branch#enabled = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+" GitGutter
+let g:gitgutter_sign_column_always = 1
+
 " vimwiki
 let g:vimwiki_use_mouse  = 1
 let g:vimwiki_camel_case = 0
@@ -497,7 +523,7 @@ let g:syntastic_mode_map                = { 'passive_filetypes': ['scss', 'slim'
 " syntastic - jshintrc
 let g:syntastic_javascript_checkers     = ['jshint']
 let g:syntastic_javascript_jshint_args  = '--config ' . $HOME . '/.jshintrc'
-let g:syntastic_javascript_jshint_exec  = '/home/xadillax/.nvm/versions/node/v0.12.2/bin/jshint'
+let g:syntastic_javascript_jshint_exec  = '/usr/local/bin/jshint'
 let g:syntastic_html_tidy_ignore_errors = [
 			\ 'trimming empty <i>',
 			\ 'trimming empty <span>',
@@ -559,6 +585,3 @@ augroup END
 
 " 自定义后缀
 au BufNewFile,BufRead *.gyp set filetype=json
-
-" Vim Javascript Syntax
-au FileType javascript call JavaScriptFold()
