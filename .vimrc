@@ -29,13 +29,10 @@ Bundle "sidorares/node-vim-debugger"
 Bundle "walm/jshint.vim"
 Bundle "moll/vim-node"
 Bundle "heavenshell/vim-jsdoc"
-" Bundle "jelera/vim-javascript-syntax"
 Bundle "pangloss/vim-javascript"
-" Bundle "marijnh/tern_for_vim"
 Bundle "maksimr/vim-jsbeautify.git"
 Bundle "einars/js-beautify"
 Bundle "scrooloose/syntastic.git"
-Bundle "guileen/vim-node-dict"
 Bundle "mxw/vim-jsx"
 " Rust
 Bundle "rust-lang/rust.vim"
@@ -50,7 +47,6 @@ Bundle "fholgado/minibufexpl.vim"
 Bundle "scrooloose/nerdtree"
 Bundle "jistr/vim-nerdtree-tabs"
 Bundle "scrooloose/nerdcommenter"
-" Bundle "Lokaltog/vim-powerline"
 Bundle "bling/vim-airline"
 Bundle "tpope/vim-fugitive"
 Bundle "airblade/vim-gitgutter"
@@ -80,14 +76,14 @@ Bundle "rizzatti/dash.vim"
 set history=400
 
 " 高亮配色
-colorscheme lucius
+colorscheme onedark
 set background=dark
 set t_ut=
 
 " 命令行处于状态行
 set ch=1
 set stl=\ [File]\ %F%m%r%h%y[%{&fileformat},%{&fileencoding}]\ %w\ \ [PWD]\ %r%{GetPWD()}%h\ %=\ [Line]\ %l,%c\ %=\ %P   
-set ls=2 " 始终显示状态行
+set ls=2                                                                        " 始终显示状态行
 
 " 制表符
 set tabstop=4
@@ -100,8 +96,6 @@ set softtabstop=4
 set showcmd
 
 " 行控制
-" set linebreak
-" set textwidth=80
 set nocompatible
 set wrap
 
@@ -113,14 +107,10 @@ set rulerformat=%15(%c%V\ %p%%%)
 " 控制台响铃
 :set noerrorbells
 :set novisualbell
-:set t_vb= "close visual bell
+:set t_vb=                                                                      " close visual bell
 
 " 在插入模式下使用 <BS>, <Del> <C-W> <C-U>
 set backspace=indent,eol,start
-
-" 标签页
-set tabpagemax=20
-set showtabline=2
 
 " 命令补全菜单
 set wildmenu
@@ -139,8 +129,6 @@ set foldmethod=syntax
 " 自动切换到文件当前目录
 set autochdir
 
-" 查找时忽略大小写
-set ignorecase
 set incsearch
 set hlsearch
 
@@ -235,7 +223,7 @@ if has("gui_running")
 
     if has("mac") || has("gui_macvim")
         set guifont=Fantasque\ Sans\ Mono:h14
-        set guifontwide=WenyueType\ GutiFangsong\ \(Noncommercial\ Use\):h16
+        set guifontwide=WenyueType\ GutiFangsong\ \(Noncommercial\ Use\):h14
         if has("gui_macvim")
             set transparency=4
 
@@ -260,9 +248,6 @@ if has("gui_running")
                 endif
             endf
         endif
-
-        " Clojure 配置
-        source $HOME/.vim/clojure.vim
     endif
 endif
 
@@ -270,10 +255,8 @@ endif
 " 一些项目路径
 "==============
 if has("win32")
-    let g:nodeProjectPath="D:\\CODE\\node.js"
     let g:hexoProjectPath="E:\\cygwin\\home\\XadillaX\\hexo"
 else
-    let g:nodeProjectPath="~/code/node/"
     let g:hexoProjectPath="~/hexo-site/"
 endif
 
@@ -286,25 +269,10 @@ fun! OpenHexoProjPath()
 endfun
 
 "=====================
-" MacVim 下的配置
-"=====================
-if has("gui_macvim")
-    " Mac 下，按 \ff 切换全屏
-    map <Leader><Leader>  :call FullScreenToggle()<cr>
-
-    " Set input method off
-    set imdisable
-
-    " 自动切换到文件当前目录
-    set autochdir
-endif
-
-"=====================
 " Win 下的配置
 "=====================
 if has("win32")
     call OpenNodeProjPath()
-    set autochdir
 endif
 
 "=============
@@ -331,8 +299,6 @@ nnoremap <leader>( viw<esc>i(<esc>hbi)<esc>lel
 nnoremap <leader>fl :NERDTreeToggle<cr>
 " 打开/关闭 Tlist
 nnoremap <leader>tl :TlistToggle<cr>
-" 打开 nodepath
-nnoremap <leader>nodepath :call OpenNodeProjPath()<cr>
 " 打开 hexopath
 nnoremap <leader>hexopath :call OpenHexoProjPath()<cr>
 " 复制系统寄存器
@@ -361,18 +327,12 @@ map <C-l> <C-w>l
 " 设置标签路径
 nnoremap <leader>st :set tags+=./tags<cr>
 " 切换标签页
-nnoremap <S-h> gT
-nnoremap <S-l> gt
 nnoremap <S-j> :MBEbn<cr>
 nnoremap <S-k> :MBEbp<cr>
 " 关闭标签页
-nnoremap <S-x> :tabc<cr>
-nnoremap <S-d> :tabo<cr>
 nnoremap <S-w> :MBEbw<cr>
 " 取消搜索高亮
 nnoremap <leader>/ :set nohlsearch<cr>
-" 执行 clojure
-nnoremap <C-cr> :Eval<cr>
 " tag 自动生成
 nnoremap <leader>tag :!ctags -R *<cr>:TlistUpdate<cr>:call AddCurrentDirToTag()<cr>
 " 打开终端
@@ -432,11 +392,6 @@ let g:pymode_run_bind = "<C-S-e>"
 " Override view python doc key shortcut to Ctrl-Shift-d
 let g:pymode_doc_bind = "<C-S-d>"
 
-" Powerline
-set laststatus=2     " Always show the statusline
-set t_Co=256         " Explicitly tell Vim that the terminal support 256 colors
-let g:Powerline_symbols  = 'unicode'
-
 " Airline
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#branch#enabled = 1
@@ -453,13 +408,6 @@ let g:airline_symbols.linenr = ''
 
 " GitGutter
 let g:gitgutter_sign_column_always = 1
-
-" vimwiki
-let g:vimwiki_use_mouse  = 1
-let g:vimwiki_camel_case = 0
-" Vimwiki
-" 生成所有 HTML
-map <leader>wah :VimwikiAll2HTML<cr>
 
 " vimclojure
 let g:vimclojure#HighlightBuiltins = 1
@@ -494,7 +442,7 @@ let g:ycm_add_preview_to_completeopt = 0
 if has("win32")
 let g:ycm_global_ycm_extra_conf = 'C:\Users\XadillaX\.vim\bundle\YouCompleteMe\third_party\ycmd\examples\.ycm_extra_conf.py'
 else
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 endif
 set completeopt-=preview
 
@@ -509,13 +457,10 @@ if exists(":Tabularize")
     vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
 
-" Node.js
-au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
-
 " syntastic
 let g:syntastic_check_on_open           = 1
 let g:syntastic_error_symbol            = '✗'
-let g:syntastic_warning_symbol          = '~'
+let g:syntastic_warning_symbol          = '!'
 let g:syntastic_auto_loc_list           = 1
 let g:syntastic_loc_list_height         = 5
 let g:syntastic_enable_highlighting     = 0
@@ -540,9 +485,12 @@ let g:syntastic_html_tidy_ignore_errors = [
 			\ 'discarding unexpected <rect>'
 			\ ]
 
+" jsdoc
+nmap <silent> <leader><C-l> <Plug>(jsdoc)
+
 if has("win32")
     let g:syntastic_error_symbol = 'x'
-    let g:syntastic_warning_symbol = '?'
+    let g:syntastic_warning_symbol = '!'
 
     let g:syntastic_javascript_jshint_args = '--config ' . $HOME . '/.vim/_jshintrc'
     let g:syntastic_javascript_jshint_exec = 'jshint'
