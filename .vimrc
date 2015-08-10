@@ -37,6 +37,7 @@ Bundle "mxw/vim-jsx"
 " Rust
 Bundle "rust-lang/rust.vim"
 Bundle "cespare/vim-toml"
+Bundle "phildawes/racer"
 " JSON 相关
 Bundle "elzr/vim-json"
 Bundle "XadillaX/json-formatter.vim"
@@ -257,7 +258,7 @@ endif
 if has("win32")
     let g:hexoProjectPath="E:\\cygwin\\home\\XadillaX\\hexo"
 else
-    let g:hexoProjectPath="~/hexo-site/"
+    let g:hexoProjectPath="~/hexo/"
 endif
 
 fun! OpenNodeProjPath()
@@ -279,7 +280,7 @@ endif
 " 键映射
 "=============
 let mapleader = "-"
-" 关闭 / 打开 quickfix
+"" 关闭 / 打开 quickfix
 nnoremap <leader>cc :cclose<cr>
 nnoremap <leader>co :copen<cr>
 " JSHint
@@ -468,7 +469,7 @@ let g:syntastic_mode_map                = { 'passive_filetypes': ['scss', 'slim'
 " syntastic - jshintrc
 let g:syntastic_javascript_checkers     = ['jshint']
 let g:syntastic_javascript_jshint_args  = '--config ' . $HOME . '/.jshintrc'
-let g:syntastic_javascript_jshint_exec  = '/usr/local/bin/jshint'
+let g:syntastic_javascript_jshint_exec  = '/Users/xadillax/.nvm/versions/io.js/v2.5.0/bin/jsxhint'
 let g:syntastic_html_tidy_ignore_errors = [
 			\ 'trimming empty <i>',
 			\ 'trimming empty <span>',
