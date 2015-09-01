@@ -17,11 +17,12 @@ Bundle "guns/vim-clojure-highlight"
 Bundle "spinningarrow/vim-niji"
 " Python 相关
 Bundle "klen/python-mode.git"
-" C++ 相关
-Bundle "XadillaX/c.vim"
+" YCM
 Bundle "Valloric/YouCompleteMe"
 " HBS 相关
 Bundle "mustache/vim-mustache-handlebars"
+" CPP 相关
+Bundle "XadillaX/c.vim"
 " EJS 相关
 Bundle "briancollins/vim-jst"
 " JS 相关
@@ -32,7 +33,6 @@ Bundle "heavenshell/vim-jsdoc"
 Bundle "pangloss/vim-javascript"
 Bundle "maksimr/vim-jsbeautify.git"
 Bundle "einars/js-beautify"
-Bundle "scrooloose/syntastic.git"
 Bundle "mxw/vim-jsx"
 " Rust
 Bundle "rust-lang/rust.vim"
@@ -42,6 +42,7 @@ Bundle "phildawes/racer"
 Bundle "elzr/vim-json"
 Bundle "XadillaX/json-formatter.vim"
 " 通用插件
+Bundle "scrooloose/syntastic.git"
 Bundle "vim-scripts/grep.vim"
 Bundle "rosenfeld/conque-term"
 Bundle "fholgado/minibufexpl.vim"
@@ -53,11 +54,12 @@ Bundle "tpope/vim-fugitive"
 Bundle "airblade/vim-gitgutter"
 Bundle "vim-scripts/TagHighlight"
 Bundle "vim-scripts/vimwiki"
-Bundle "vim-scripts/taglist.vim"
 Bundle "Raimondi/delimitMate"
 Bundle "mileszs/ack.vim"
 Bundle "godlygeek/tabular"
 Bundle "junegunn/vim-easy-align"
+" AWK, Bash, C, LaTeX, Perl, Vim, ...
+" Bundle "WolfgangMehner/vim-plugins"
 " Markdown
 Bundle "plasticboy/vim-markdown"
 Bundle "suan/vim-instant-markdown"
@@ -319,7 +321,7 @@ map <silent> <F2> :if &guioptions =~# 'T' <Bar>
         \set guioptions+=m <Bar>
     \endif<CR>
 " Ctrl-d 插入时间
-imap <C-d> <C-r>=GetTimeInfo()<cr>
+" imap <C-d> <C-r>=GetTimeInfo()<cr>
 " 换窗口
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -334,8 +336,6 @@ nnoremap <S-k> :MBEbp<cr>
 nnoremap <S-w> :MBEbw<cr>
 " 取消搜索高亮
 nnoremap <leader>/ :set nohlsearch<cr>
-" tag 自动生成
-nnoremap <leader>tag :!ctags -R *<cr>:TlistUpdate<cr>:call AddCurrentDirToTag()<cr>
 " 打开终端
 map <D-r> :ConqueTermVSplit zsh<cr>
 
@@ -437,9 +437,13 @@ nmap ga <Plug>(EasyAlign)
 " c.vim
 let  g:C_UseTool_cmake      = 'yes' 
 let  g:C_UseTool_doxygen    = 'yes' 
+let  g:C_Ctrl_j             = 'off'
 
 " YouCompleteMe
+let g:ycm_show_diagnostics_ui = 0
 let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
 if has("win32")
 let g:ycm_global_ycm_extra_conf = 'C:\Users\XadillaX\.vim\bundle\YouCompleteMe\third_party\ycmd\examples\.ycm_extra_conf.py'
 else
@@ -466,10 +470,15 @@ let g:syntastic_auto_loc_list           = 1
 let g:syntastic_loc_list_height         = 5
 let g:syntastic_enable_highlighting     = 0
 let g:syntastic_mode_map                = { 'passive_filetypes': ['scss', 'slim'] }
+" syntastic - cpplint
+let g:syntastic_cpp_include_dirs = [
+    \ '/Users/xadillax/.nvm/versions/io.js/v2.5.0/include/node',
+    \ '/Users/xadillax/.nvm/versions/io.js/v2.5.0/lib/node_modules/nan']
+let g:syntastic_cpp_compiler_options = '--std=c++11'
 " syntastic - jshintrc
-let g:syntastic_javascript_checkers     = ['jshint']
-let g:syntastic_javascript_jshint_args  = '--config ' . $HOME . '/.jshintrc'
-let g:syntastic_javascript_jshint_exec  = '/Users/xadillax/.nvm/versions/io.js/v2.5.0/bin/jsxhint'
+let g:syntastic_javascript_checkers     = ['jsxhint']
+let g:syntastic_javascript_jsxhint_args  = '--config ' . $HOME . '/.jshintrc'
+let g:syntastic_javascript_jsxhint_exec  = '/Users/xadillax/.nvm/versions/io.js/v2.5.0/bin/jsxhint'
 let g:syntastic_html_tidy_ignore_errors = [
 			\ 'trimming empty <i>',
 			\ 'trimming empty <span>',
