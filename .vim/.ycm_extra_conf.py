@@ -31,17 +31,31 @@ flags = [
     # This path will only work on OS X, but extra paths that don't exist are not
     # harmful
     '-isystem', '/usr/local/include',
+
     # C headers
     '-isystem', '/usr/include',
+
     # C++ headers
     '-isystem',
     '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.'
     'xctoolchain/usr/include/c++/v1',
+
     '-isystem',
     '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.'
-    'xctoolchain/usr/lib/clang/6.1.0/include'
-    # others
-    '-I', 'include'
+    'xctoolchain/usr/lib/clang/6.1.0/include',
+
+    # Node.js include
+    '-I', '/Users/xadillax/.nvm/versions/io.js/v2.5.0/include/node',
+
+    # NAN
+    '-I',
+    '/Users/xadillax/.nvm/versions/io.js/v2.5.0/lib/node_modules/nan',
+
+    # YU BIAN YI CAN SHU
+
+    # PRETENT I'M iojs 3.0
+    # https://github.com/nodejs/nan/blob/v2.0.7/nan.h#L120
+    '-DNODE_MODULE_VERSION=45'
 ]
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
