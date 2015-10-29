@@ -42,7 +42,8 @@ Bundle "phildawes/racer"
 Bundle "elzr/vim-json"
 Bundle "XadillaX/json-formatter.vim"
 " 通用插件
-Bundle "scrooloose/syntastic.git"
+" Bundle "scrooloose/syntastic.git"
+Bundle "touhou-gensokyo/syntastic-adapt-minibufexpl"
 Bundle "vim-scripts/grep.vim"
 Bundle "rosenfeld/conque-term"
 Bundle "fholgado/minibufexpl.vim"
@@ -66,6 +67,8 @@ Bundle "suan/vim-instant-markdown"
 " others
 Bundle "mattn/emmet-vim"
 Bundle "wavded/vim-stylus"
+Bundle "groenewege/vim-less"
+Bundle "digitaltoad/vim-jade.git"
 " Theme
 Bundle "morhetz/gruvbox"
 Bundle "wellsjo/wells-colorscheme.vim"
@@ -477,7 +480,7 @@ let g:syntastic_cpp_include_dirs = [
 let g:syntastic_cpp_compiler_options = '--std=c++11'
 " syntastic - jshintrc
 let g:syntastic_javascript_checkers     = ['jsxhint']
-let g:syntastic_javascript_jsxhint_args  = '--config ' . $HOME . '/.jshintrc'
+" let g:syntastic_javascript_jsxhint_args  = '--config ' . $HOME . '/.jshintrc'
 let g:syntastic_javascript_jsxhint_exec  = '/Users/xadillax/.nvm/versions/io.js/v2.5.0/bin/jsxhint'
 let g:syntastic_html_tidy_ignore_errors = [
 			\ 'trimming empty <i>',
