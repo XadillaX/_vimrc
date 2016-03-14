@@ -34,6 +34,7 @@ Bundle "pangloss/vim-javascript"
 Bundle "maksimr/vim-jsbeautify.git"
 Bundle "einars/js-beautify"
 Bundle "mxw/vim-jsx"
+Bundle "isRuslan/vim-es6"
 " Rust
 Bundle "rust-lang/rust.vim"
 Bundle "cespare/vim-toml"
@@ -69,6 +70,7 @@ Bundle "mattn/emmet-vim"
 Bundle "wavded/vim-stylus"
 Bundle "groenewege/vim-less"
 Bundle "digitaltoad/vim-jade.git"
+Bundle "SirVer/UltiSnips"
 " Theme
 Bundle "morhetz/gruvbox"
 Bundle "wellsjo/wells-colorscheme.vim"
@@ -82,7 +84,9 @@ Bundle "rizzatti/dash.vim"
 set history=400
 
 " 高亮配色
-colorscheme onedark
+" colorscheme onedark
+colorscheme gruvbox
+" colorscheme wellsokai
 set background=dark
 set t_ut=
 
@@ -466,6 +470,7 @@ if exists(":Tabularize")
 endif
 
 " syntastic
+" let g:syntastic_debug = 3
 let g:syntastic_check_on_open           = 1
 let g:syntastic_error_symbol            = '✗'
 let g:syntastic_warning_symbol          = '!'
@@ -476,12 +481,23 @@ let g:syntastic_mode_map                = { 'passive_filetypes': ['scss', 'slim'
 " syntastic - cpplint
 let g:syntastic_cpp_include_dirs = [
     \ '/Users/xadillax/.nvm/versions/io.js/v2.5.0/include/node',
-    \ '/Users/xadillax/.nvm/versions/io.js/v2.5.0/lib/node_modules/nan']
+    \ '/Users/xadillax/.nvm/versions/io.js/v2.5.0/lib/node_modules/nan',
+    \ '/Users/xadillax/Workspace/cpp/render-ojn/include/fmodex',
+    \ '/Users/xadillax/Vagrantfile/fuck-ons/node/ons-subscriber/src/third_party/include']
 let g:syntastic_cpp_compiler_options = '--std=c++11'
 " syntastic - jshintrc
-let g:syntastic_javascript_checkers     = ['jsxhint']
+let g:syntastic_javascript_checkers     = [ 'jsxhint' ]
+function! HasConfig(file, dir)
+    return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
+endfunction
+autocmd BufNewFile,BufReadPre *.js let b:syntastic_checkers =
+    \ HasConfig('.eslintrc', expand('<amatch>:h')) ? ['eslint'] :
+    \ HasConfig('.jshintrc', expand('<amatch>:h')) ? ['jsxhint'] :
+    \ HasConfig('.jscsrc', expand('<amatch>:h')) ? ['jscs'] :
+    \   [ 'jsxhint' ]
 " let g:syntastic_javascript_jsxhint_args  = '--config ' . $HOME . '/.jshintrc'
-let g:syntastic_javascript_jsxhint_exec  = '/Users/xadillax/.nvm/versions/io.js/v2.5.0/bin/jsxhint'
+let g:syntastic_javascript_eslint_exec  = '/Users/xadillax/.nvm/versions/node/v4.2.1/bin/eslint'
+let g:syntastic_javascript_jsxhint_exec = '/Users/xadillax/.nvm/versions/node/v4.2.1/bin/jsxhint'
 let g:syntastic_html_tidy_ignore_errors = [
 			\ 'trimming empty <i>',
 			\ 'trimming empty <span>',
