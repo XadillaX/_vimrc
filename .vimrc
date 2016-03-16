@@ -19,12 +19,13 @@ Bundle "spinningarrow/vim-niji"
 Bundle "klen/python-mode.git"
 " YCM
 Bundle "Valloric/YouCompleteMe"
-" HBS 相关
-Bundle "mustache/vim-mustache-handlebars"
 " CPP 相关
 Bundle "XadillaX/c.vim"
-" EJS 相关
+" 模板相关
+Bundle "mustache/vim-mustache-handlebars"
 Bundle "briancollins/vim-jst"
+Bundle "posva/vim-vue"
+Bundle "digitaltoad/vim-jade.git"
 " JS 相关
 Bundle "sidorares/node-vim-debugger"
 Bundle "walm/jshint.vim"
@@ -69,7 +70,6 @@ Bundle "suan/vim-instant-markdown"
 Bundle "mattn/emmet-vim"
 Bundle "wavded/vim-stylus"
 Bundle "groenewege/vim-less"
-Bundle "digitaltoad/vim-jade.git"
 Bundle "SirVer/UltiSnips"
 " Theme
 Bundle "morhetz/gruvbox"
