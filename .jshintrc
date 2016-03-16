@@ -14,7 +14,7 @@
     "nonbsp"         : true,        
     "nonew"          : true,        
     "plusplus"       : false,       
-    "quotmark"       : "true",      
+    "quotmark"       : true,
                                     
     "undef"          : true,        
     "unused"         : true,        
@@ -75,6 +75,7 @@
         "afterEach"  : false,
         "Handlebars" : false,
         "XMLHttpRequest": false,
+        "navigator": false,
         "pangu": false,
         "window": false,
         "document": false,
