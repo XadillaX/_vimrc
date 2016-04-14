@@ -12,6 +12,9 @@ call vundle#begin()
 
     " let Vundle manage Vundle, required
     Plugin 'VundleVim/Vundle.vim'
+
+    " C
+    Plugin 'XadillaX/c.vim'
     
     " YCM
     Plugin 'Valloric/YouCompleteMe'
@@ -140,6 +143,7 @@ source $VIMHOME/external/filetype.vim
 source $VIMHOME/external/gui.vim
 
 source $VIMHOME/external/airline.vim
+source $VIMHOME/external/c.vim
 source $VIMHOME/external/hexo.vim
 source $VIMHOME/external/jsbeautify.vim
 source $VIMHOME/external/jsdoc.vim
