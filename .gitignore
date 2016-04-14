@@ -1,1 +1,4 @@
 .DS_Store
+.ropeproject
+bundle
+*.pyc
