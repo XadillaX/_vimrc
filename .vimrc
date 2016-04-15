@@ -16,9 +16,6 @@ call vundle#begin()
     " C
     Plugin 'XadillaX/c.vim'
     
-    " YCM
-    Plugin 'Valloric/YouCompleteMe'
-
     " Syntastic
     Plugin 'scrooloose/syntastic.git'
 
@@ -42,9 +39,10 @@ call vundle#begin()
 
     " Markdown
     Plugin 'plasticboy/vim-markdown'
-    Plugin 'greyblake/vim-preview'
+    Plugin 'NBUT-Developers/extra-instant-markdown'
 
     " IDE...
+    Plugin 'editorconfig/editorconfig-vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'jlanzarotta/bufexplorer'
     Plugin 'zefei/vim-wintabs'
@@ -54,6 +52,9 @@ call vundle#begin()
     Plugin 'junegunn/vim-easy-align'
     Plugin 'Raimondi/delimitMate'
     Plugin 'vim-scripts/grep.vim'
+
+    " YCM
+    Plugin 'Valloric/YouCompleteMe'
 
     " theme...
     " Plugin 'morhetz/gruvbox'
