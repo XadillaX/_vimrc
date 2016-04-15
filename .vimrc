@@ -34,6 +34,12 @@ call vundle#begin()
     Plugin 'maksimr/vim-jsbeautify'
     Plugin 'heavenshell/vim-jsdoc'
 
+    " Frontend...
+    Plugin 'othree/html5.vim'
+    Plugin 'posva/vim-vue'
+    Plugin 'groenewege/vim-less'
+    Plugin 'digitaltoad/vim-pug'
+
     " Markdown
     Plugin 'plasticboy/vim-markdown'
     Plugin 'greyblake/vim-preview'
@@ -46,10 +52,11 @@ call vundle#begin()
     Plugin 'tpope/vim-fugitive'
     Plugin 'airblade/vim-gitgutter'
     Plugin 'junegunn/vim-easy-align'
+    Plugin 'Raimondi/delimitMate'
     Plugin 'vim-scripts/grep.vim'
 
     " theme...
-    Plugin 'morhetz/gruvbox'
+    " Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 
@@ -58,9 +65,12 @@ source ~/.vim/external/common.vim
 
 " environment
 let mapleader = '-'
-colorscheme gruvbox
-set background=dark
 set wildmenu
+let g:alduin_Shout_Become_Ethereal = 1
+let g:alduin_Contract_Vampirism = 0
+let g:alduin_Shout_Aura_Whisper = 1
+let g:alduin_Shout_Fire_Breath = 1
+colorscheme alduin " should use iTerm2 theme: https://github.com/AlessandroYorba/Alduin
 set t_ut=
 
 set history=400
