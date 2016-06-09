@@ -27,15 +27,19 @@ call vundle#begin()
     Plugin 'elzr/vim-json'
 
     " Javascript
-    Plugin 'pangloss/vim-javascript'
+    Plugin 'othree/yajs.vim'
     Plugin 'maksimr/vim-jsbeautify'
     Plugin 'heavenshell/vim-jsdoc'
+
+    " Typescript
+    Plugin 'leafgarland/typescript-vim'
 
     " Frontend...
     Plugin 'othree/html5.vim'
     Plugin 'posva/vim-vue'
     Plugin 'groenewege/vim-less'
     Plugin 'digitaltoad/vim-pug'
+    Plugin 'nikvdp/ejs-syntax'
 
     " Markdown
     Plugin 'plasticboy/vim-markdown'
@@ -52,12 +56,15 @@ call vundle#begin()
     Plugin 'junegunn/vim-easy-align'
     Plugin 'Raimondi/delimitMate'
     Plugin 'vim-scripts/grep.vim'
+    Plugin 'ctrlpvim/ctrlp.vim'
 
     " YCM
     Plugin 'Valloric/YouCompleteMe'
 
     " theme...
     " Plugin 'morhetz/gruvbox'
+    Plugin 'w0ng/vim-hybrid'
+    Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 
@@ -67,11 +74,27 @@ source ~/.vim/external/common.vim
 " environment
 let mapleader = '-'
 set wildmenu
-let g:alduin_Shout_Become_Ethereal = 1
-let g:alduin_Contract_Vampirism = 0
-let g:alduin_Shout_Aura_Whisper = 1
-let g:alduin_Shout_Fire_Breath = 1
-colorscheme alduin " should use iTerm2 theme: https://github.com/AlessandroYorba/Alduin
+
+" Theme alduin
+" let g:alduin_Shout_Become_Ethereal = 1
+" let g:alduin_Contract_Vampirism = 0
+" let g:alduin_Shout_Aura_Whisper = 1
+" let g:alduin_Shout_Fire_Breath = 1
+" colorscheme alduin " should use iTerm2 theme: https://github.com/AlessandroYorba/Alduin
+" set t_ut=
+
+" Theme Hybrid
+" set background=dark
+" colorscheme hybrid
+" " let g:hybrid_custom_term_colors = 1
+" " let g:hybrid_reduced_contrast = 1
+" set t_ut=
+
+" Theme solarized
+syntax enable
+set background=dark
+colorscheme solarized
+let g:solarized_contrast = 'high'
 set t_ut=
 
 set history=400
@@ -80,7 +103,6 @@ set cindent
 set smartindent
 
 set autoread
-set foldmethod=syntax
 set autochdir
 set incsearch
 set hlsearch
@@ -89,6 +111,10 @@ set matchtime=5
 set nobackup
 set mouse=a
 set cursorline
+
+" folding
+set foldmethod=syntax
+set foldlevelstart=0
 
 "" 80 / 120 columns
 set cc=80
@@ -124,7 +150,7 @@ set backspace=indent,eol,start
 if has("multi_byte")
     set encoding=utf-8
     set fileencoding=utf-8
-    if has('win32')
+    if has('win32') || has('win64')
         language english
         let &termencoding=&encoding
     endif
@@ -155,6 +181,7 @@ source $VIMHOME/external/gui.vim
 
 source $VIMHOME/external/airline.vim
 source $VIMHOME/external/c.vim
+source $VIMHOME/external/ctrlp.vim
 source $VIMHOME/external/hexo.vim
 source $VIMHOME/external/jsbeautify.vim
 source $VIMHOME/external/jsdoc.vim
@@ -167,9 +194,6 @@ source $VIMHOME/external/vim-easy-align.vim
 source $VIMHOME/external/wintabs.vim
 source $VIMHOME/external/youcompleteme.vim
 
-" custom file type
-au BufNewFile,BufRead *.gyp set filetype=json
-
 " keymap
 "" open / close quickfix
 nnoremap <leader>cc :cclose<cr>
@@ -181,7 +205,7 @@ nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 "" hexo
 nnoremap <leader>hexo :call OpenHexoProjPath()<cr>
-nnoremap <leader>y "+y
+vnoremap <leader>y "+y
 nnoremap <leader>p "+p
 map <C-j> <C-w>j
 map <C-k> <C-w>k
