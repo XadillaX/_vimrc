@@ -8,3 +8,6 @@ au BufNewFile,BufRead *.{gyp,tern-project,jshintrc,eslintrc} set filetype=json
 
 " cocoapods
 au BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
+
+" Nginx
+au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf*,/usr/local/nginx/sites-enabled,*nginx*.conf set filetype=nginx

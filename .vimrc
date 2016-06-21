@@ -28,11 +28,16 @@ call vundle#begin()
 
     " Javascript
     Plugin 'othree/yajs.vim'
+    Plugin 'jason0x43/vim-js-indent'
+    Plugin 'othree/javascript-libraries-syntax.vim'
     Plugin 'maksimr/vim-jsbeautify'
     Plugin 'heavenshell/vim-jsdoc'
 
     " Typescript
     Plugin 'leafgarland/typescript-vim'
+
+    " Nginx
+    Plugin 'evanmiller/nginx-vim-syntax'
 
     " Frontend...
     Plugin 'othree/html5.vim'
@@ -46,6 +51,7 @@ call vundle#begin()
     Plugin 'NBUT-Developers/extra-instant-markdown'
 
     " IDE...
+    " Plugin 'yggdroot/indentline'
     Plugin 'editorconfig/editorconfig-vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'jlanzarotta/bufexplorer'
@@ -148,17 +154,22 @@ set backspace=indent,eol,start
 
 "" multi-byte
 if has("multi_byte")
-    set encoding=utf-8
-    set fileencoding=utf-8
+    if !has('nvim')
+        set encoding=utf-8
+        set fileencoding=utf-8
+    endif
+
     if has('win32') || has('win64')
         language english
         let &termencoding=&encoding
     endif
 
-    set lm=zh_cn.utf-8
-    let $LANG='zh_cn'
-    set fencs=ucs-bom,utf-8,gbk,cp836,latin1
-    set formatoptions+=mM
+    if !has('nvim')
+        set lm=zh_cn.utf-8
+        let $LANG='zh_cn'
+        set fencs=ucs-bom,utf-8,gbk,cp836,latin1
+        set formatoptions+=mM
+    endif
 
     set nobomb
 
@@ -183,6 +194,7 @@ source $VIMHOME/external/airline.vim
 source $VIMHOME/external/c.vim
 source $VIMHOME/external/ctrlp.vim
 source $VIMHOME/external/hexo.vim
+source $VIMHOME/external/indentline.vim
 source $VIMHOME/external/jsbeautify.vim
 source $VIMHOME/external/jsdoc.vim
 source $VIMHOME/external/markdown.vim
@@ -206,9 +218,15 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "" hexo
 nnoremap <leader>hexo :call OpenHexoProjPath()<cr>
 vnoremap <leader>y "+y
+vnoremap <leader>Y "+Y
 nnoremap <leader>p "+p
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-h> <C-w>h
-map <C-l> <C-w>l
+nnoremap <leader>P "+P
+nnoremap <silent> <C-j> <C-w>j
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-l> <C-w>l
 nnoremap <leader>/ :set nohlsearch<cr>
+
+if has('nvim')
+  nnoremap <silent> <BS> <C-w>h
+endif
