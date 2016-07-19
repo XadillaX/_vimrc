@@ -1,78 +1,82 @@
 " set language to zh_CN
 set langmenu=zh_cn
 
-" be improved, required - for Vundle
+" be improved, required - for vim-plug
 set nocompatible
-" required - for Vundle
+" required - for vim-plug
 filetype off
 
 " plugin settings
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-    " let Vundle manage Vundle, required
-    Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/bundle')
 
     " C
-    Plugin 'XadillaX/c.vim'
+    Plug 'xadillax/c.vim', { 'do': 'node ../../install_scripts/c.js' }
+    Plug 'octol/vim-cpp-enhanced-highlight'
+    Plug 'majutsushi/tagbar'
     
     " Syntastic
-    Plugin 'scrooloose/syntastic.git'
+    Plug 'scrooloose/syntastic'
 
     " Python
-    Plugin 'klen/python-mode'
+    Plug 'klen/python-mode', { 'for': 'python' }
     
     " JSON
-    Plugin 'XadillaX/json-formatter.vim'
-    Plugin 'elzr/vim-json'
+    Plug 'XadillaX/json-formatter.vim', { 'do': 'npm install -g jjson', 'for': 'json' }
+    Plug 'elzr/vim-json', { 'for': 'json' }
 
     " Javascript
-    Plugin 'othree/yajs.vim'
-    Plugin 'jason0x43/vim-js-indent'
-    Plugin 'othree/javascript-libraries-syntax.vim'
-    Plugin 'maksimr/vim-jsbeautify'
-    Plugin 'heavenshell/vim-jsdoc'
+    Plug 'othree/yajs.vim', { 'for': [ 'javascript', 'html', 'vue' ] }
+    Plug 'jason0x43/vim-js-indent', { 'for': [ 'javascript', 'html', 'vue' ] }
+    Plug 'othree/javascript-libraries-syntax.vim', { 'for': [ 'javascript', 'html', 'vue' ] }
+    Plug 'maksimr/vim-jsbeautify', { 'for': [ 'javascript', 'html', 'vue', 'json', 'css' ], 'do': 'npm install' }
+    Plug 'heavenshell/vim-jsdoc', { 'for': [ 'javascript', 'html', 'vue' ] }
 
     " Typescript
-    Plugin 'leafgarland/typescript-vim'
+    Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
     " Nginx
-    Plugin 'evanmiller/nginx-vim-syntax'
+    Plug 'evanmiller/nginx-vim-syntax'
 
     " Frontend...
-    Plugin 'othree/html5.vim'
-    Plugin 'posva/vim-vue'
-    Plugin 'groenewege/vim-less'
-    Plugin 'digitaltoad/vim-pug'
-    Plugin 'nikvdp/ejs-syntax'
+    Plug 'othree/html5.vim', { 'for': 'html' }
+    Plug 'posva/vim-vue', { 'for': 'vue' }
+    Plug 'groenewege/vim-less', { 'for': 'less' }
+    Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
+    Plug 'nikvdp/ejs-syntax', { 'for': 'ejs' }
 
     " Markdown
-    Plugin 'plasticboy/vim-markdown'
-    Plugin 'NBUT-Developers/extra-instant-markdown'
+    Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+    Plug 'NBUT-Developers/extra-instant-markdown', { 'for': 'markdown', 'do': 'npm -g install instant-markdown-x' }
 
     " IDE...
+    Plug 'godlygeek/csapprox'
+    Plug 'terryma/vim-multiple-cursors'
     " Plugin 'yggdroot/indentline'
-    Plugin 'editorconfig/editorconfig-vim'
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'jlanzarotta/bufexplorer'
-    Plugin 'zefei/vim-wintabs'
-    Plugin 'bling/vim-airline'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'airblade/vim-gitgutter'
-    Plugin 'junegunn/vim-easy-align'
-    Plugin 'Raimondi/delimitMate'
-    Plugin 'vim-scripts/grep.vim'
-    Plugin 'ctrlpvim/ctrlp.vim'
+    Plug 'godlygeek/tabular', { 'for': 'markdown' } " needed by plasticboy/vim-markdown
+    Plug 'editorconfig/editorconfig-vim'
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'jlanzarotta/bufexplorer'
+    Plug 'zefei/vim-wintabs'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'junegunn/vim-easy-align'
+    Plug 'Raimondi/delimitMate'
+    " Plug 'vim-scripts/grep.vim'
+    Plug 'mileszs/ack.vim', { 'do': 'brew install ack' }
+    Plug 'ctrlpvim/ctrlp.vim'
 
     " YCM
-    Plugin 'Valloric/YouCompleteMe'
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer --racer-completer' }
 
     " theme...
-    " Plugin 'morhetz/gruvbox'
-    Plugin 'w0ng/vim-hybrid'
-    Plugin 'altercation/vim-colors-solarized'
+    Plug 'morhetz/gruvbox'
+    Plug 'w0ng/vim-hybrid'
+    Plug 'altercation/vim-colors-solarized'
 
-call vundle#end()
+call plug#end()
 
 " some functions
 source ~/.vim/external/common.vim
@@ -99,7 +103,7 @@ set wildmenu
 " Theme solarized
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 let g:solarized_contrast = 'high'
 set t_ut=
 
@@ -192,6 +196,7 @@ source $VIMHOME/external/gui.vim
 
 source $VIMHOME/external/airline.vim
 source $VIMHOME/external/c.vim
+source $VIMHOME/external/vim-cpp-enhanced-highlight.vim
 source $VIMHOME/external/ctrlp.vim
 source $VIMHOME/external/hexo.vim
 source $VIMHOME/external/indentline.vim
@@ -205,6 +210,7 @@ source $VIMHOME/external/syntastic.vim
 source $VIMHOME/external/vim-easy-align.vim
 source $VIMHOME/external/wintabs.vim
 source $VIMHOME/external/youcompleteme.vim
+source $VIMHOME/external/tagbar.vim
 
 " keymap
 "" open / close quickfix

@@ -38,7 +38,10 @@ let g:syntastic_html_tidy_ignore_errors = [
             \ 'discarding unexpected <svg>',
             \ 'discarding unexpected </svg>',
             \ '<rect> is not recognized!',
-            \ 'discarding unexpected <rect>'
+            \ 'discarding unexpected <rect>',
+            \ '<app> is not recognized!',
+            \ 'discarding unexpected <app>',
+            \ 'discarding unexpected </app>'
             \ ]
 
 if has("win32")
