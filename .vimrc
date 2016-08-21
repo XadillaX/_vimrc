@@ -25,11 +25,11 @@ call plug#begin('~/.vim/bundle')
     Plug 'elzr/vim-json', { 'for': 'json' }
 
     " Javascript
-    Plug 'othree/yajs.vim', { 'for': [ 'javascript', 'html', 'vue' ] }
-    Plug 'jason0x43/vim-js-indent', { 'for': [ 'javascript', 'html', 'vue' ] }
-    Plug 'othree/javascript-libraries-syntax.vim', { 'for': [ 'javascript', 'html', 'vue' ] }
-    Plug 'maksimr/vim-jsbeautify', { 'for': [ 'javascript', 'html', 'vue', 'json', 'css' ], 'do': 'npm install' }
-    Plug 'heavenshell/vim-jsdoc', { 'for': [ 'javascript', 'html', 'vue' ] }
+    Plug 'othree/yajs.vim', { 'for': [ 'javascript', 'html' ] }
+    Plug 'jason0x43/vim-js-indent', { 'for': [ 'javascript', 'html' ] }
+    Plug 'othree/javascript-libraries-syntax.vim', { 'for': [ 'javascript', 'html' ] }
+    Plug 'maksimr/vim-jsbeautify', { 'for': [ 'javascript', 'html', 'css' ], 'do': 'npm install' }
+    Plug 'heavenshell/vim-jsdoc', { 'for': [ 'javascript', 'html' ] }
 
     " Typescript
     Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
@@ -39,14 +39,25 @@ call plug#begin('~/.vim/bundle')
 
     " Frontend...
     Plug 'othree/html5.vim', { 'for': 'html' }
-    Plug 'posva/vim-vue', { 'for': 'vue' }
+    Plug 'posva/vim-vue', {
+        \ 'do': 'ln -f -s ../../vim-pug/syntax/pug.vim syntax/ && '.
+        \     'ln -f -s ../../html5/syntax/html.vim syntax/ && '.
+        \     'ln -f -s ../../vim-less/syntax/less.vim syntax/ && '.
+        \     'ln -f -s ../../yajs.vim/syntax/javascript.vim syntax/ && '.
+        \     'ln -f -s ../../yajs.vim/syntax/semhl.vim syntax/ && '.
+        \     'ln -f -s ../../yajs.vim/syntax/web.vim syntax/ && '.
+        \     'ln -f -s ../../yajs.vim/syntax/yajs syntax/'
+    \ }
     Plug 'groenewege/vim-less', { 'for': 'less' }
-    Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
+    Plug 'digitaltoad/vim-pug', { 'for': [ 'pug', 'jade' ] }
     Plug 'nikvdp/ejs-syntax', { 'for': 'ejs' }
 
     " Markdown
     Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
     Plug 'NBUT-Developers/extra-instant-markdown', { 'for': 'markdown', 'do': 'npm -g install instant-markdown-x' }
+
+    " YAML
+    Plug 'chase/vim-ansible-yaml'
 
     " IDE...
     Plug 'godlygeek/csapprox'

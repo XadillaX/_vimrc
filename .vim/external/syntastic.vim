@@ -13,7 +13,11 @@ let g:node_include_path = fnamemodify(
 let g:syntastic_cpp_include_dirs = [
             \ g:node_include_path . '/include/node',
             \ g:node_include_path . '/lib/node_modules/nan',
-            \'/Users/xadillax/Vagrantfile/fuck-ons/node/ons-subscriber/src/third_party/include' ]
+            \'/Users/xadillax/Vagrantfile/fuck-ons/node/ons-subscriber/src/third_party/include',
+            \'/Users/xadillax/Vagrantfile/fuck-ons/node/ons-subscriber/src/third_party/sole',
+            \'/Users/xadillax/Workspace/souche/confbiu/native/deps/HTTP-CLIENT/src',
+            \'/usr/local/Cellar/phash/0.9.6_1/include',
+            \'/usr/local/include']
 let g:syntastic_cpp_compiler_options = '--std=c++11'
 
 " jshintrc
@@ -23,7 +27,9 @@ autocmd BufNewFile,BufReadPre *.js let b:syntastic_checkers =
             \ HasConfig('.jshintrc', expand('<amatch>:h')) ? ['jsxhint'] :
             \ HasConfig('.jscsrc', expand('<amatch>:h')) ? ['jscs'] :
             \ [ 'jsxhint' ]
-let g:syntastic_javascript_eslint_exec  = g:node_include_path . '/bin/eslint'
+autocmd BufNewFile,BufReadPre *.js let g:syntastic_javascript_eslint_exec =
+            \ HasConfig('eslint', expand('<amatch>:h')) ? (expand('<amatch>:h') . '/node_modules/.bin/eslint') :
+            \ g:node_include_path . '/bin/eslint'
 let g:syntastic_javascript_jsxhint_exec = g:node_include_path . '/bin/jsxhint'
 let g:syntastic_html_tidy_ignore_errors = [
             \ 'trimming empty <i>',
