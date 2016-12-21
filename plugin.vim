@@ -12,7 +12,8 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
   Plug 'terryma/vim-multiple-cursors'
   Plug 'scrooloose/syntastic', { 'do': [ 'npm install -g nan --registry=https://registry.npm.taobao.org',
-              \'ln -s ~/.config/nvim/addon_configure/.jshintrc ~/.jshintrc \|\| true' ] }
+              \'ln -s ~/.config/nvim/addon_configure/.jshintrc ~/.jshintrc \|\| true',
+              \'ln -s ~/.config/nvim/addon_configure/.tern-project ~/.tern-config \|\| true' ] }
   Plug 'SirVer/ultisnips'
   Plug 'pgilad/vim-skeletons'
   Plug 'mileszs/ack.vim', { 'do': 'brew install ack' }
