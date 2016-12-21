@@ -14,3 +14,5 @@ set showcmd
 
 " highlight current line
 set cursorline
+
+set t_ut=
