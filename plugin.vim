@@ -19,6 +19,7 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'mileszs/ack.vim', { 'do': 'brew install ack' }
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'editorconfig/editorconfig-vim', { 'do': 'ln -s ~/.config/nvim/addon_configure/.editorconfig ~/.editorconfig \|\| true' }
 
   " UI
   Plug 'zefei/vim-wintabs'
@@ -44,6 +45,8 @@ call plug#begin('~/.config/nvim/bundle')
   " useful for `switch`
   Plug 'jason0x43/vim-js-indent', { 'for': [ 'javascript', 'html'  ]  }
   Plug 'heavenshell/vim-jsdoc', { 'for': [ 'javascript', 'html' ] }
+  Plug 'digitaltoad/vim-jade'
+  Plug 'wavded/vim-stylus'
 
   " C / CPP
   Plug 'octol/vim-cpp-enhanced-highlight'
@@ -59,6 +62,7 @@ call plug#begin('~/.config/nvim/bundle')
 
   " JSON
   Plug 'elzr/vim-json'
+  Plug 'XadillaX/json-formatter.vim'
 call plug#end()
 
 " external plugin settings
