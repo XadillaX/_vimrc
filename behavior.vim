@@ -36,7 +36,7 @@ command! -nargs=+ HexoOpen :call OpenHexoPost("<args>")
 command! -nargs=+ HexoNew :call NewHexoPost("<args>")
 
 " folding
-set foldmethod=syntax
+set foldmethod=syntax  
 set foldlevelstart=0
 
 " System tags

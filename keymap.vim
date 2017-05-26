@@ -20,7 +20,7 @@ nnoremap <silent> <C-j> <C-w>j
 nnoremap <silent> <C-k> <C-w>k
 nnoremap <silent> <C-h> <C-w>h
 nnoremap <silent> <C-l> <C-w>l
-nnoremap <leader>/ :set nohlsearch<cr>
+nnoremap <leader>/ :set hlsearch! hlsearch?<cr>
 "" Generate CTAGS
 map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
 

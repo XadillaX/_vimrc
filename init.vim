@@ -34,3 +34,7 @@ set history=400
 set autoindent
 set cindent
 set smartindent
+
+" project specifiec .vimrc files
+set exrc
+set secure

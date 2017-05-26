@@ -16,8 +16,19 @@ flags = [
   '-isystem',
   '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.1.0/include',
 
+  # Node.js and NAN
   '-I', '/Users/xadillax/.nvm/versions/node/v6.9.1/include/node',
-  '-I', '/Users/xadillax/.nvm/versions/node/v6.9.1/lib/node_modules/nan'
+  '-I', '/Users/xadillax/.nvm/versions/node/v6.9.1/lib/node_modules/nan',
+
+  # Nginx
+  '-I', '/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/core',
+  '-I', '/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/dtrace',
+  '-I', '/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/event',
+  '-I', '/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/http',
+  '-I', '/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/mail',
+  '-I', '/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/misc',
+  '-I', '/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/os',
+  '-I', '/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/stream'
 ]
 
 

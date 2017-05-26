@@ -11,9 +11,9 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
   Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
   Plug 'terryma/vim-multiple-cursors'
-  Plug 'scrooloose/syntastic', { 'do': [ 'npm install -g nan --registry=https://registry.npm.taobao.org',
-              \'ln -s ~/.config/nvim/addon_configure/.jshintrc ~/.jshintrc \|\| true',
-              \'ln -s ~/.config/nvim/addon_configure/.tern-project ~/.tern-config \|\| true' ] }
+  Plug 'scrooloose/syntastic', { 'do': 'npm install -g nan --registry=https://registry.npm.taobao.org && ' .
+                                      \'(ln -s ~/.config/nvim/addon_configure/.jshintrc ~/.jshintrc \|\| true) && ' .
+                                      \'(ln -s ~/.config/nvim/addon_configure/.tern-project ~/.tern-config \|\| true)' }
   Plug 'SirVer/ultisnips'
   Plug 'pgilad/vim-skeletons'
   Plug 'mileszs/ack.vim', { 'do': 'brew install ack' }
@@ -41,12 +41,20 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'othree/yajs.vim', { 'for': [ 'javascript', 'html' ] }
   Plug 'othree/html5.vim', { 'for': [ 'html' ] }
   Plug 'othree/javascript-libraries-syntax.vim'
+  Plug 'blockloop/vim-swigjs',
   Plug 'maksimr/vim-jsbeautify', { 'for': [ 'javascript', 'html', 'css' ], 'do': 'npm install --registry=https://registry.npm.taobao.org' }
   " useful for `switch`
   Plug 'jason0x43/vim-js-indent', { 'for': [ 'javascript', 'html'  ]  }
   Plug 'heavenshell/vim-jsdoc', { 'for': [ 'javascript', 'html' ] }
   Plug 'digitaltoad/vim-jade'
   Plug 'wavded/vim-stylus'
+  Plug 'mxw/vim-jsx'
+  Plug 'hexchain/vim-openresty'
+
+  " Lua
+  " Plug 'xolox/vim-misc'
+  " Plug 'xolox/vim-lua-ftplugin'
+  Plug 'davisdude/vim-love-docs'
 
   " C / CPP
   Plug 'octol/vim-cpp-enhanced-highlight'
@@ -82,6 +90,10 @@ source $VIMHOME/external/web_nodejs/js-indent.vim
 source $VIMHOME/external/web_nodejs/javascript-libraries-syntax.vim
 source $VIMHOME/external/web_nodejs/jsbeautify.vim
 source $VIMHOME/external/web_nodejs/jsdoc.vim
+source $VIMHOME/external/web_nodejs/jsx.vim
+source $VIMHOME/external/web_nodejs/openresty.vim
+
+source $VIMHOME/external/lua/vim-lua.vim
 
 source $VIMHOME/external/c_cpp/enhanced-highlight.vim
 source $VIMHOME/external/c_cpp/tagbar.vim

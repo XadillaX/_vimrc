@@ -17,19 +17,38 @@ let g:syntastic_cpp_include_dirs = [
             \'/Users/xadillax/Vagrantfile/fuck-ons/node/ons-subscriber/src/third_party/sole',
             \'/Users/xadillax/Workspace/souche/confbiu/native/deps/HTTP-CLIENT/src',
             \'/usr/local/Cellar/phash/0.9.6_1/include',
-            \'/usr/local/include']
+            \'/usr/local/include',
+            \'/Users/xadillax/Workspace/c/',
+            \'/Users/xadillax/Workspace/node/']
 let g:syntastic_cpp_compiler_options = '--std=c++11'
 
+" c
+let g:syntastic_c_include_dirs = [
+            \'/usr/local/include',
+            \'/usr/local/src/openssl-1.0.2k/include',
+            \'/usr/local/src/openresty-1.11.2.2/build/ngx_lua-0.10.7/src/api',
+            \'/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/core',
+            \'/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/dtrace',
+            \'/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/event',
+            \'/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/http',
+            \'/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/http/modules',
+            \'/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/mail',
+            \'/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/misc',
+            \'/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/os',
+            \'/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/os/unix',
+            \'/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/src/stream',
+            \'/usr/local/src/openresty-1.11.2.2/build/nginx-1.11.2/objs']
+
 " jshint
-let g:syntastic_javascript_checkers = ['jshint']
-autocmd BufNewFile,BufReadPre *.js let b:syntastic_checkers =
-            \ HasConfig('.eslintrc', expand('<amatch>:h')) ? ['eslint'] :
-            \ HasConfig('.jshintrc', expand('<amatch>:h')) ? ['jshint'] :
+let g:syntastic_javascript_checkers = ['eslint']
+let b:syntastic_checkers =
+            \ HasConfig('.eslintrc', expand('%:p:h')) ? ['eslint'] :
+            \ HasConfig('.jshintrc', expand('%:p:h')) ? ['jshint'] :
             \ ['jshint']
-autocmd BufNewFile,BufReadPre *.js let g:syntastic_javascript_eslint_exec =
-            \ HasConfig('eslint', expand('<amatch>:h')) ? (expand('<amatch>:h') . '/node_modules/.bin/eslint') :
+let g:syntastic_javascript_eslint_exec =
+            \ HasConfig('.eslintrc', expand('%:p:h')) ? (expand('%:p:h') . '/node_modules/.bin/eslint') :
             \ g:node_include_path . '/bin/eslint'
-let g:syntastic_javascript_jsxhint_exec = g:node_include_path . '/bin/jshint'
+let g:syntastic_javascript_jshint_exec = g:node_include_path . '/bin/jshint'
 let g:syntastic_html_tidy_ignore_errors = [
             \ 'trimming empty <i>',
             \ 'trimming empty <span>',
@@ -48,6 +67,8 @@ let g:syntastic_html_tidy_ignore_errors = [
             \ 'discarding unexpected <app>',
             \ 'discarding unexpected </app>'
             \ ]
+
+let g:syntastic_debug = 0
 
 " Windows
 if has("win32")
