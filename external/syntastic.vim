@@ -19,7 +19,7 @@ let g:syntastic_cpp_include_dirs = [
             \'/usr/local/Cellar/phash/0.9.6_1/include',
             \'/usr/local/include',
             \'/Users/xadillax/Workspace/c/',
-            \'/Users/xadillax/Workspace/node/']
+            \'/Users/xadillax/Workspace/master-node/']
 let g:syntastic_cpp_compiler_options = '--std=c++11'
 
 " c

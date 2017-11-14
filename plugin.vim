@@ -38,10 +38,12 @@ call plug#begin('~/.config/nvim/bundle')
   " ===============
 
   " Web / Node.js
+  " Plug 'jelera/vim-javascript-syntax'
   Plug 'othree/yajs.vim', { 'for': [ 'javascript', 'html' ] }
   Plug 'othree/html5.vim', { 'for': [ 'html' ] }
   Plug 'othree/javascript-libraries-syntax.vim'
   Plug 'blockloop/vim-swigjs',
+  Plug 'posva/vim-vue'
   Plug 'maksimr/vim-jsbeautify', { 'for': [ 'javascript', 'html', 'css' ], 'do': 'npm install --registry=https://registry.npm.taobao.org' }
   " useful for `switch`
   Plug 'jason0x43/vim-js-indent', { 'for': [ 'javascript', 'html'  ]  }
@@ -50,6 +52,7 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'wavded/vim-stylus'
   Plug 'mxw/vim-jsx'
   Plug 'hexchain/vim-openresty'
+  Plug 'briancollins/vim-jst'
 
   " Lua
   " Plug 'xolox/vim-misc'
