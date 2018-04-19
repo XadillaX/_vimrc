@@ -12,7 +12,12 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 " gitgutter
-let g:gitgutter_sign_column_always = 1
+" https://github.com/airblade/vim-gitgutter#sign-column
+if exists('&signcolumn')
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
 
 " no tabline
 let g:airline#extensions#tabline#enabled = 0
