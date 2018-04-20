@@ -13,13 +13,11 @@ let g:node_include_path = fnamemodify(
 let g:syntastic_cpp_include_dirs = [
             \ g:node_include_path . '/include/node',
             \ g:node_include_path . '/lib/node_modules/nan',
-            \'/Users/xadillax/Vagrantfile/fuck-ons/node/ons-subscriber/src/third_party/include',
-            \'/Users/xadillax/Vagrantfile/fuck-ons/node/ons-subscriber/src/third_party/sole',
             \'/Users/xadillax/Workspace/souche/confbiu/native/deps/HTTP-CLIENT/src',
-            \'/usr/local/Cellar/phash/0.9.6_1/include',
             \'/usr/local/include',
             \'/Users/xadillax/Workspace/c/',
-            \'/Users/xadillax/Workspace/master-node/']
+            \'/Users/xadillax/.nvm/versions/node/v8.11.1/lib/node_modules/nan',
+            \'/Users/xadillax/.nvm/versions/node/v8.11.1/include/node']
 let g:syntastic_cpp_compiler_options = '--std=c++11'
 
 " c
