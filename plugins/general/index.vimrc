@@ -1,0 +1,6 @@
+call dein#add('scrooloose/nerdtree')
+call dein#add('jiangmiao/auto-pairs')
+call dein#add('andymass/vim-matchup')
+call dein#add('Shougo/vimproc.vim', { 'build': 'make' })
+call dein#add('mileszs/ack.vim', { 'build': 'sh -c "brew install ack || brew upgrade ack"' })
+call dein#add('editorconfig/editorconfig-vim', { 'build': 'sh -c "ln -s ~/.config/nvim/additional-files/.editorconfig ~/.editorconfig || true"' })
