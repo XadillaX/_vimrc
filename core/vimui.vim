@@ -11,7 +11,8 @@ else
   set t_Co=256
 endif
 
-colorscheme gruvbox
+set background=light
+colorscheme automata
 
 " Show line-number {
   set number
