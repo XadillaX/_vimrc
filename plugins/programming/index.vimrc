@@ -1,2 +1,5 @@
-" call dein#add('dense-analysis/ale')
-call dein#add('vim-syntastic/syntastic')
+call dein#add('dense-analysis/ale')
+call dein#add('liuchengxu/vista.vim')
+call dein#add('neoclide/coc.nvim', { 'merged': 0, 'build': 'yarn install --registry=https://registry.npm.taobao.org --frozen-lockfile' })
+call dein#add('sheerun/vim-polyglot')
+" call dein#add('vim-syntastic/syntastic')

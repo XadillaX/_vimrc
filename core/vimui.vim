@@ -1,4 +1,17 @@
-colorscheme nord
+if has('termguicolors')
+  " for neovim >= 0.1.5 and vim >= 8
+  let &t_8f = '\<Esc>[38;2;%lu;%lu;%lum'
+  let &t_8b = '\<Esc>[48;2;%lu;%lu;%lum'
+  set termguicolors
+elseif has('neovim')
+  " for neovim 0.1.3 and 0.1.4
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+else
+  " for vim 7
+  set t_Co=256
+endif
+
+colorscheme gruvbox
 
 " Show line-number {
   set number
@@ -23,14 +36,3 @@ colorscheme nord
 " }
 
 set t_ut=
-
-if has('termguicolors')
-  " for neovim >= 0.1.5 and vim >= 8
-  set termguicolors
-elseif has('neovim')
-  " for neovim 0.1.3 and 0.1.4
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-else
-  " for vim 7
-  set t_Co=256
-endif

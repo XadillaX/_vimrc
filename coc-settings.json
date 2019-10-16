@@ -1,0 +1,4 @@
+{
+  "tsserver.enableJavascript": true,
+  "javascript.validate.enable": false
+}
