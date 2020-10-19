@@ -4,6 +4,11 @@ let g:ale_open_list = 1
 
 let g:ale_linters = {
       \    'typescript': ['tsserver'],
-      \    'cpp': ['clangd'],
+      \    'cpp': ['cpplint', 'clangd'],
+      \    'c': ['cpplint', 'clangd']
       \}
-let g:ale_cpp_clangd_executable = "/Users/xadillax/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd"
+
+let g:ale_cpp_cpplint_executable = "/home/xadillax/Workspace/taobao/strontium/node/tools/cpplint.py"
+let g:ale_c_clangd_executable = "/usr/bin/clangd-9"
+let g:ale_c_cpp_clangd_executable = "/usr/bin/clangd-9"
+let g:ale_cpp_clangd_executable = "/usr/bin/clangd-9"

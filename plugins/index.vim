@@ -17,7 +17,8 @@ let g:bundle_groups = [
   \ 'languages/javascript',
   \ 'languages/json',
   \ 'languages/markdown',
-  \ 'languages/typescript'
+  \ 'languages/typescript',
+  \ 'languages/c_cpp'
 \]
 
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
