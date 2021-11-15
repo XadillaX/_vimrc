@@ -11,8 +11,8 @@ else
   set t_Co=256
 endif
 
-set background=dark
-colorscheme pink-moon
+set background=light
+colorscheme automata
 
 " Show line-number {
   set number
