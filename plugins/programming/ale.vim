@@ -9,7 +9,7 @@ let g:ale_linters = {
       \    'json': [],
       \}
 
-let g:ale_cpp_cpplint_executable = "/home/xadillax/Workspace/taobao/strontium/vendor/cpplint/cpplint.py"
+let g:ale_cpp_cpplint_executable = "/usr/local/bin/cpplint"
 let g:ale_c_clangd_executable = "/usr/bin/clangd-9"
 let g:ale_c_cpp_clangd_executable = "/usr/bin/clangd-9"
 let g:ale_cpp_clangd_executable = "/usr/bin/clangd-9"
