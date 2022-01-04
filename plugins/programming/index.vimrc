@@ -4,4 +4,5 @@ call dein#add('neoclide/coc.nvim', { 'merged': 0, 'build': 'yarn install --regis
 call dein#add('sheerun/vim-polyglot')
 call dein#add('christoomey/vim-conflicted')
 call dein#add('vim-scripts/DoxygenToolkit.vim')
+call dein#add('github/copilot.vim')
 " call dein#add('vim-syntastic/syntastic')
