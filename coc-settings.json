@@ -1,5 +1,5 @@
 {
   "tsserver.enableJavascript": true,
   "javascript.validate.enable": false,
-  "clangd.path": "/usr/bin/clangd-9"
+  "clangd.path": "/usr/bin/clangd"
 }

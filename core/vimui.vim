@@ -14,6 +14,8 @@ endif
 set background=light
 colorscheme automata
 
+highlight Comment gui=italic cterm=italic
+
 " Show line-number {
   set number
   set wrap
