@@ -23,6 +23,9 @@ let g:bundle_groups = [
 
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
+" g:polyglot_disabled should declared before vim-polyglot is loaded
+let g:polyglot_disabled = ['markdown']
+
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
