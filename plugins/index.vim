@@ -12,7 +12,6 @@ let g:bundle_groups = [
   \ 'general',
   \ 'programming',
   \ 'themes',
-  \ 'youcompleteme',
   \
   \ 'languages/javascript',
   \ 'languages/json',

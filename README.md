@@ -16,7 +16,7 @@ $ sh ./installer.sh ~/.cache/dein
 $ rm installer.sh
 ```
 
-Open NeoVIM and run:
+Open Neovim and run:
 
 ```viml
 :call dein#clear_state()
