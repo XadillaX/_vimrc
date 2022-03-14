@@ -7,6 +7,8 @@
 " $ sh ./installer.sh ~/.cache/dein
 " $ rm installer.sh
 " ```
+let g:install_log_filename = '~/.cache/dein/install.log'
+
 let g:bundle_groups = [
   \ 'appearance',
   \ 'general',
