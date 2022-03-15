@@ -1,5 +1,5 @@
 let g:lightline = {
-            \   'colorscheme': 'aquarium',
+            \   'colorscheme': 'Mir2',
             \   'active': {
             \     'left': [
             \       [ 'mode', 'paste' ],
