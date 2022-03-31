@@ -12,7 +12,7 @@ else
 endif
 
 set background=dark
-colorscheme Mir2
+colorscheme hatsunemiku
 
 highlight Comment gui=italic cterm=italic
 

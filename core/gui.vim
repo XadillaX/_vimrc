@@ -7,8 +7,8 @@ if has('gui_running') || exists('g:neovim_qt')
   if has('mac') || has('gui_macvim')
     if has('gui_vimr')
       " https://github.com/qvacua/vimr/wiki#commands-from-within-neovim
-      VimRSetFontAndSize "Fantasque Sans Mono Regular Nerd Font Complete Mono", 14
-    els
+      " VimRSetFontAndSize "Fantasque Sans Mono Regular Nerd Font Complete Mono", 14
+    else
       set guifont=FantasqueSansMono\ Nerd\ Font\ Mono:h13
       set guifontwide=FantasqueSansMono\ Nerd\ Font\ Mono:h13
     endif
