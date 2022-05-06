@@ -10,7 +10,7 @@ let g:ale_linters = {
       \    'python': [],
       \}
 
-let g:ale_cpp_cpplint_executable = "/usr/local/bin/cpplint.py"
+let g:ale_cpp_cpplint_executable = "cpplint"
 let g:ale_c_clangd_executable = "/usr/bin/clangd-9"
 let g:ale_c_cpp_clangd_executable = "/usr/bin/clangd-9"
 let g:ale_cpp_clangd_executable = "/usr/bin/clangd-9"
