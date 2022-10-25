@@ -11,8 +11,8 @@ else
   set t_Co=256
 endif
 
-" set background=light
-colorscheme aquarium
+set background=dark
+colorscheme hatsunemiku
 
 highlight Comment gui=italic cterm=italic
 

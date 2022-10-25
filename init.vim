@@ -3,7 +3,7 @@ set langmenu=zh_cn
 set encoding=utf8
 
 if has('win32') || has('win64')
-  " TODO: $IMHOME under M$ Windows
+  " TODO: $VIMHOME under M$ Windows
 elseif has('nvim')
   " $VIMHOME of neovim
   let $VIMHOME = $HOME . '/.config/nvim'
