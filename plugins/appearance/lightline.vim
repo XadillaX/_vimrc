@@ -1,5 +1,5 @@
 let g:lightline = {}
-let g:lightline.colorscheme = 'hatsunemiku'
+let g:lightline.colorscheme = 'sonokai'
 let g:vim_lightline_artify = 2
 
 " https://github.com/sainnhe/dotfiles/blob/0deab24ca971a6c226e54793285f0a194878de96/.config/nvim/autoload/custom/lightline.vim

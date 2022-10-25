@@ -28,10 +28,6 @@ set nocompatible
   source $VIMHOME/core/general.vim
 " }
 
-" Vim UI {
-  source $VIMHOME/core/vimui.vim
-" }
-
 " GUI {
   source $VIMHOME/core/gui.vim
 " }
@@ -42,4 +38,8 @@ set nocompatible
 
 " Plugin config {
   source $VIMHOME/plugins/config.vim
+" }
+
+" Vim UI {
+  source $VIMHOME/core/vimui.vim
 " }

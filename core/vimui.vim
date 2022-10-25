@@ -12,7 +12,7 @@ else
 endif
 
 set background=dark
-colorscheme hatsunemiku
+colorscheme sonokai
 
 highlight Comment gui=italic cterm=italic
 
