@@ -1,3 +1,9 @@
+" Keymap {
+"   Open / close NERDTree {
+"     nnoremap <leader>fl :NvimTreeToggle<cr>
+"   }
+" }
+
 lua << EOF
 
 require("nvim-tree").setup({
@@ -6,6 +12,9 @@ require("nvim-tree").setup({
   filters = {
     dotfiles = true,
   },
+  git = {
+    timeout = 1000,
+  },
 })
 
 EOF
@@ -13,9 +22,3 @@ EOF
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | Startify | execute 'NvimTreeOpen' | wincmd w | endif
 autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-
-" Keymap {
-"   Open / close NERDTree {
-      nnoremap <leader>fl :NvimTreeToggle<cr>
-"   }
-" }

@@ -42,6 +42,7 @@ set cursorline
 " }
 
 " Folding {
-  set foldmethod=syntax
+  set foldmethod=expr
+  set foldexpr=nvim_treesitter#foldexpr()
   set foldlevelstart=0
 " }

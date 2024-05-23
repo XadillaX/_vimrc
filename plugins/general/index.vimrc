@@ -7,6 +7,6 @@ call dein#add('editorconfig/editorconfig-vim', { 'build': 'sh -c "ln -s ~/.confi
 call dein#add('Yggdroot/LeaderF', { 'build': 'sh -c "./install.sh"' })
 " call dein#add('APZelos/blamer.nvim')
 call dein#add('f-person/git-blame.nvim')
-call dein#add('kyazdani42/nvim-web-devicons')
-call dein#add('kyazdani42/nvim-tree.lua')
+call dein#add('nvim-tree/nvim-web-devicons')
+call dein#add('nvim-tree/nvim-tree.lua')
 call dein#add('wakatime/vim-wakatime')

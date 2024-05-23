@@ -1,7 +1,9 @@
 {
-  "tsserver.enableJavascript": true,
   "javascript.validate.enable": false,
-  "clangd.path": "/usr/bin/clangd",
+  "tsserver.log": "normal",
+  "tsserver.pluginPaths": [ "." ],
+
+  "clangd.path": "/opt/homebrew/opt/llvm/bin/clangd",
   "clangd.arguments": [
     "--header-insertion=never"
   ]
