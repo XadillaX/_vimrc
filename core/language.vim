@@ -1,5 +1,6 @@
 " JSON {
   au BufNewFile,BufRead *.{jshintrc,eslintrc,changelogrc} set filetype=json
+  let g:indentLine_setConceal=0
 " }
 
 " CocoaPods {

@@ -40,3 +40,4 @@ let mapleader = '-'
 if has('nvim')
   nnoremap <silent> <BS> <C-w>h
 endif
+
