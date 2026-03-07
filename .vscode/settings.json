@@ -1,0 +1,17 @@
+{
+  "[lua]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
+    "editor.formatOnSave": true
+  },
+  "[vim]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "Lua.runtime.version": "LuaJIT",
+  "Lua.diagnostics.globals": ["vim"],
+  "Lua.workspace.library": [
+    "${3rd}/luv/library"
+  ],
+  "Lua.workspace.checkThirdParty": "Disable",
+  "Lua.hint.enable": true
+}

@@ -1,0 +1,13 @@
+cmdargs:
+  severity: warning
+  color: true
+  env:
+    neovim: true
+
+policies:
+  ProhibitUnnecessaryDoubleQuote:
+    enabled: false
+  ProhibitImplicitScopeVariable:
+    enabled: false
+  ProhibitAbbreviationOption:
+    enabled: false
