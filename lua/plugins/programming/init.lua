@@ -1,7 +1,7 @@
 return {
   { 'dense-analysis/ale', event = 'BufReadPost' },
   { 'liuchengxu/vista.vim', cmd = 'Vista', keys = { { '<F8>', ':Vista!!<CR>', desc = 'Toggle Vista' } } },
-  { 'neoclide/coc.nvim', branch = 'release', event = 'BufReadPost', build = 'yarn install --frozen-lockfile' },
+  { 'neoclide/coc.nvim', branch = 'release', event = 'VeryLazy', build = 'npm install' },
   { 'sheerun/vim-polyglot', event = 'BufReadPost' },
   { 'christoomey/vim-conflicted', cmd = 'Conflicted' },
   { 'vim-scripts/DoxygenToolkit.vim', cmd = 'Dox' },

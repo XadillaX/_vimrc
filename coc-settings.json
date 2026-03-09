@@ -6,5 +6,7 @@
   "clangd.path": "/opt/homebrew/opt/llvm/bin/clangd",
   "clangd.arguments": [
     "--header-insertion=never"
-  ]
+  ],
+
+  "rust-analyzer.server.path": "/Users/bytedance/.cargo/bin/rust-analyzer"
 }

@@ -13,5 +13,6 @@
     "${3rd}/luv/library"
   ],
   "Lua.workspace.checkThirdParty": "Disable",
-  "Lua.hint.enable": true
+  "Lua.hint.enable": true,
+  "rust-analyzer.server.path": "/Users/bytedance/.cargo/bin/rust-analyzer"
 }
